@@ -75,8 +75,13 @@ const Contact = () => {
       </div>
       <div className="contact-section">
         <div className="contact-left">
-          <h1>Let's Talk</h1>
-          <p>I'm currently available to take on new projects, so feel free to send me a message</p>
+          <div className="contact-availability">
+            <span className="availability-icon">💼</span>
+            <h2>Open to Opportunities</h2>
+            <p className="availability-text">Currently seeking full-time positions in UAE</p>
+          </div>
+          <h1>Let's Work Together</h1>
+          <p>I'm actively looking for new opportunities in the UAE. Whether you're hiring for a full-time role, contract work, or have a project in mind, I'd love to hear from you. Let's build something amazing together!</p>
           <div className="contact-details">
             <div className="contact-detail">
               <img src={mail_icon} alt="" />
@@ -84,7 +89,7 @@ const Contact = () => {
             </div>
             <div className="contact-detail">
               <img src={call_icon} alt="" />
-              <p>8281935725</p>
+              <p>+971-568840282</p>
             </div>
             <div className="contact-detail">
               <img src={location_icon} alt="" />

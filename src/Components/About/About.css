@@ -272,32 +272,41 @@
 
 .achievement-item {
   text-align: center;
-  padding: 30px 20px;
-  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+  padding: 35px 25px;
+  background: linear-gradient(135deg, rgba(218, 124, 37, 0.15) 0%, rgba(184, 107, 0, 0.15) 100%);
   border-radius: 20px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  min-width: 180px;
+  box-shadow: 0 15px 35px rgba(218, 124, 37, 0.2);
+  transition: all 0.3s ease;
+  min-width: 200px;
+  border: 2px solid rgba(218, 124, 37, 0.2);
+  backdrop-filter: blur(10px);
 }
 
 .achievement-item:hover {
-  transform: translateY(-10px);
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 20px 45px rgba(218, 124, 37, 0.3);
+  border-color: rgba(218, 124, 37, 0.4);
+  background: linear-gradient(135deg, rgba(218, 124, 37, 0.25) 0%, rgba(184, 107, 0, 0.25) 100%);
 }
 
 .achievement-item h2 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 800;
-  color: #fff;
+  background: linear-gradient(135deg, #DA7C25 0%, #FFA500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 10px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: none;
 }
 
 .achievement-item p {
   font-size: 1rem;
   font-weight: 600;
-  color: #fff;
+  color: #e0e0e0;
   margin: 0;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* Responsive Design */
