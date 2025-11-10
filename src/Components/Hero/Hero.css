@@ -1,287 +1,250 @@
+// ...existing code...
+:root {
+  /* If your nav is fixed, set --nav-height in a global stylesheet to match it (optional) */
+  --nav-height: 64px;
+}
+
 .hero {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 100px 20px 80px;
-    text-align: center;
-    position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 100px 20px 80px;
+  text-align: center;
+  position: relative;
+}
+
+/* Badge */
+.hero-availability-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, rgba(218, 124, 37, 0.15) 0%, rgba(184, 107, 0, 0.15) 100%);
+  border: 2px solid rgba(218, 124, 37, 0.4);
+  border-radius: 30px;
+  margin-bottom: 30px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #DA7C25;
+  box-shadow: 0 4px 15px rgba(218, 124, 37, 0.2);
+  animation: pulse-badge 2s ease-in-out infinite;
+
+  /* keep badge above other layers and make movements safe */
+  position: relative;
+  z-index: 2;
+}
+
+/* small green dot */
+.availability-dot {
+  width: 10px;
+  height: 10px;
+  background: #4caf50;
+  border-radius: 50%;
+  animation: blink 2s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.6);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes pulse-badge {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+.hero-location {
+  font-size: 1.1rem !important;
+  color: #DA7C25 !important;
+  font-weight: 600 !important;
+  margin-bottom: 20px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.hero img {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #DA7C25;
+  box-shadow: 0 8px 32px rgba(218, 124, 37, 0.3), 0 0 0 8px rgba(218, 124, 37, 0.1);
+  margin-bottom: 30px;
+  transition: all 0.3s ease;
+}
+
+.hero img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 40px rgba(218, 124, 37, 0.4), 0 0 0 12px rgba(218, 124, 37, 0.15);
+}
+
+.hero h1 {
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 24px 0;
+  color: #ffffff;
+  letter-spacing: -1.5px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero h1 span {
+  color: #DA7C25;
+  font-weight: 700;
+  background: linear-gradient(135deg, #DA7C25 0%, #FFA500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero p {
+  max-width: 700px;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #e0e0e0;
+  font-weight: 400;
+  margin: 0 0 48px 0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.hero-action {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.hero-connect {
+  padding: 16px 32px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #DA7C25 0%, #c46d1f 100%);
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  font-size: 17px;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(218, 124, 37, 0.3);
+  letter-spacing: 0.5px;
+}
+
+.hero-connect:hover {
+  background: linear-gradient(135deg, #c46d1f 0%, #DA7C25 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(218, 124, 37, 0.4);
+}
+
+/* Resume buttons */
+.resume-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-resume {
+  padding: 14px 24px;
+  border-radius: 6px;
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid #333333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-resume:hover {
+  background: #333333;
+  border-color: #555555;
+}
+
+.hero-download {
+  padding: 14px;
+  border-radius: 6px;
+  background: #DA7C25;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+}
+
+.hero-download:hover {
+  background: #c46d1f;
+  transform: translateY(-2px);
+}
+
+.view-icon { transition: transform 0.2s ease; }
+.download-icon { transition: transform 0.2s ease; }
+.hero-resume:hover .view-icon { transform: scale(1.1); }
+.hero-download:hover .download-icon { transform: translateY(2px); }
+
+/* ---------- Responsive: merge and keep consistent ---------- */
+
+/* Tablet and small desktops */
+@media (max-width: 768px) {
+  /* increase top padding so the badge clears a fixed nav on smaller viewports */
+  .hero {
+    /* uses --nav-height when available, otherwise falls back to 64px */
+    padding: calc(var(--nav-height, 64px) + 16px) 20px 20px;
   }
 
   .hero-availability-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    background: linear-gradient(135deg, rgba(218, 124, 37, 0.15) 0%, rgba(184, 107, 0, 0.15) 100%);
-    border: 2px solid rgba(218, 124, 37, 0.4);
-    border-radius: 30px;
-    margin-bottom: 30px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #DA7C25;
-    box-shadow: 0 4px 15px rgba(218, 124, 37, 0.2);
-    animation: pulse-badge 2s ease-in-out infinite;
+    /* nudge the badge slightly down and tighten spacing for a cleaner look */
+    top: 8px;
+    margin-bottom: 18px;
+    padding: 8px 16px;
+    font-size: 0.92rem;
+    box-shadow: 0 6px 18px rgba(218, 124, 37, 0.16);
   }
 
-  .availability-dot {
-    width: 10px;
-    height: 10px;
-    background: #4caf50;
-    border-radius: 50%;
-    animation: blink 2s ease-in-out infinite;
-    box-shadow: 0 0 10px rgba(76, 175, 80, 0.6);
+  .hero img { width: 220px; height: 220px; }
+  .hero h1 { font-size: 36px; }
+  .hero p { font-size: 16px; max-width: 100%; }
+  .hero-action { flex-direction: column; gap: 16px; width: 100%; }
+  .resume-buttons { width: 100%; justify-content: center; }
+  .hero-connect, .hero-resume { width: 200px; text-align: center; }
+  .hero-resume { flex: 1; justify-content: center; max-width: 160px; }
+  .hero-download { min-width: 48px; }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  /* add more top padding if nav is taller or overlaps */
+  .hero {
+    padding: calc(var(--nav-height, 56px) + 24px) 16px 16px;
   }
 
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+  .hero-availability-badge {
+    top: 12px;
+    padding: 7px 14px;
+    font-size: 0.88rem;
+    border-radius: 26px;
+    margin-bottom: 14px;
+    box-shadow: 0 6px 18px rgba(218, 124, 37, 0.14);
   }
 
-  @keyframes pulse-badge {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.02); }
-  }
+  .resume-buttons { gap: 12px; }
+  .hero-resume { padding: 12px 20px; font-size: 14px; }
+  .hero-download { padding: 12px; }
+  .hero img { width: 180px; height: 180px; }
+  .hero h1 { font-size: 28px; }
+  .hero p { font-size: 14px; }
+}
 
-  .hero-location {
-    font-size: 1.1rem !important;
-    color: #DA7C25 !important;
-    font-weight: 600 !important;
-    margin-bottom: 20px !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-  }
-  
-  .hero img {
-    width: 280px;
-    height: 280px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 4px solid #DA7C25;
-    box-shadow: 0 8px 32px rgba(218, 124, 37, 0.3), 0 0 0 8px rgba(218, 124, 37, 0.1);
-    margin-bottom: 30px;
-    transition: all 0.3s ease;
-  }
+/* fine-tune overlay situations: if your nav has very large z-index and covers content,
+   set the hero itself below the nav but rely on top padding to push content down.
+   If you prefer the badge always above nav, increase its z-index here (use cautiously). */
+/* .hero-availability-badge { z-index: 9999; } */
 
-  .hero img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 12px 40px rgba(218, 124, 37, 0.4), 0 0 0 12px rgba(218, 124, 37, 0.15);
-  }
-  
-  .hero h1 {
-    font-size: 52px;
-    font-weight: 700;
-    line-height: 1.2;
-    margin: 0 0 24px 0;
-    color: #ffffff;
-    letter-spacing: -1.5px;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  }
-  
-  .hero h1 span {
-    color: #DA7C25;
-    font-weight: 700;
-    background: linear-gradient(135deg, #DA7C25 0%, #FFA500 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  
-  .hero p {
-    max-width: 700px;
-    font-size: 18px;
-    line-height: 1.8;
-    color: #e0e0e0;
-    font-weight: 400;
-    margin: 0 0 48px 0;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  }
-  
-  .hero-action {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    font-size: 16px;
-    font-weight: 500;
-  }
-  
-  .hero-connect {
-    padding: 16px 32px;
-    border-radius: 8px;
-    background: linear-gradient(135deg, #DA7C25 0%, #c46d1f 100%);
-    color: #ffffff;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: none;
-    font-size: 17px;
-    font-weight: 600;
-    box-shadow: 0 4px 15px rgba(218, 124, 37, 0.3);
-    letter-spacing: 0.5px;
-  }
-  
-  .hero-connect:hover {
-    background: linear-gradient(135deg, #c46d1f 0%, #DA7C25 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(218, 124, 37, 0.4);
-  }
-  
-/* Add this to your existing Hero.css file */
-
-/* Add this to your existing Hero.css file */
-
-.resume-buttons {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  .hero-resume {
-    padding: 14px 24px;
-    border-radius: 6px;
-    background: transparent;
-    color: #ffffff;
-    border: 2px solid #333333;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    font-size: 16px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  .hero-resume:hover {
-    background: #333333;
-    border-color: #555555;
-  }
-  
-  .hero-download {
-    padding: 14px;
-    border-radius: 6px;
-    background: #DA7C25;
-    color: #ffffff;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 48px;
-  }
-  
-  .hero-download:hover {
-    background: #c46d1f;
-    transform: translateY(-2px);
-  }
-  
-  .view-icon {
-    transition: transform 0.2s ease;
-  }
-  
-  .download-icon {
-    transition: transform 0.2s ease;
-  }
-  
-  .hero-resume:hover .view-icon {
-    transform: scale(1.1);
-  }
-  
-  .hero-download:hover .download-icon {
-    transform: translateY(2px);
-  }
-  
-  /* Responsive updates */
-  @media (max-width: 768px) {
-    .hero-action {
-      flex-direction: column;
-      gap: 16px;
-      width: 100%;
-    }
-    
-    .resume-buttons {
-      width: 100%;
-      justify-content: center;
-    }
-    
-    .hero-connect {
-      width: 200px;
-      text-align: center;
-    }
-    
-    .hero-resume {
-      flex: 1;
-      justify-content: center;
-      max-width: 160px;
-    }
-    
-    .hero-download {
-      min-width: 48px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .resume-buttons {
-      gap: 12px;
-    }
-    
-    .hero-resume {
-      padding: 12px 20px;
-      font-size: 14px;
-    }
-    
-    .hero-download {
-      padding: 12px;
-    }
-  }
-  /* Responsive */
-  @media (max-width: 768px) {
-    .hero {
-      padding: 60px 20px;
-    }
-    
-    .hero img {
-      width: 220px;
-      height: 220px;
-    }
-    
-    .hero h1 {
-      font-size: 36px;
-    }
-    
-    .hero p {
-      font-size: 16px;
-      max-width: 100%;
-    }
-    
-    .hero-action {
-      flex-direction: column;
-      gap: 16px;
-      width: 100%;
-    }
-    
-    .hero-connect,
-    .hero-resume {
-      width: 200px;
-      text-align: center;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .hero {
-      padding: 40px 16px;
-    }
-    
-    .hero img {
-      width: 180px;
-      height: 180px;
-    }
-    
-    .hero h1 {
-      font-size: 28px;
-    }
-    
-    .hero p {
-      font-size: 14px;
-    }
-  }
+/* ...existing code... */
